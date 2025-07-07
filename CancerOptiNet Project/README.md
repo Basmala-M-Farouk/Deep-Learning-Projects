@@ -1,36 +1,84 @@
-# Optimizer Comparison for Cancer Patient Outcome Prediction
+# 🧠 CancerOptiNet  
+**Deep Learning Optimization for Cancer Survival Prediction**
 
-![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
-![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange)
-![License](https://img.shields.io/badge/License-MIT-green)
+## 📘 Project Description
 
-This project compares different optimization algorithms for training a neural network on global cancer patient data (2015-2024) to predict treatment outcomes.
+This project applies deep learning techniques to a simulated global cancer patient dataset (2015–2024) to predict key outcomes such as **survival years**, **treatment cost**, and **severity score**. The main goal is to evaluate and compare the performance of various gradient-based optimizers (SGD, Adam, RMSprop, Adagrad) in terms of convergence speed, accuracy, and overall model performance.
 
-## 📌 Project Overview
+---
 
-The goal is to evaluate how different optimizers affect model performance when predicting:
-- Treatment cost (USD)
-- Survival years
-- Severity score
+## 🩺 Dataset Overview
 
-Key features include:
-- Patient demographics (age, gender, country)
-- Cancer characteristics (type, stage)
-- Risk factors (genetics, pollution, lifestyle)
+The dataset includes global cancer data with the following features:
 
-## 🛠️ Technical Implementation
+- **Demographics:** Age, Gender, Country/Region  
+- **Medical Info:** Cancer Type, Stage, Severity Score  
+- **Lifestyle & Risk Factors:** Smoking, Alcohol, Environmental Exposure  
+- **Target Variables:**  
+  - 🎯 Survival Years  
+  - 💰 Treatment Cost  
+  - 🚨 Severity Score  
 
-### Data Preprocessing
-- Numeric features normalized using `MinMaxScaler`
-- Categorical features one-hot encoded
-- Dataset split 80% train / 20% test
+---
 
-### Model Architecture
-```python
-Sequential([
-    Dense(64, activation='relu', kernel_regularizer=l2(0.001)),
-    Dropout(0.3),
-    Dense(32, activation='relu', kernel_regularizer=l2(0.001)),
-    Dropout(0.3),
-    Dense(3, activation='linear')  # Multi-output regression
-])
+## 🔧 Tasks Breakdown
+
+### 1️⃣ Data Preprocessing
+- Normalized numeric features
+- One-hot encoded categorical features
+- Train-test split (80% training, 20% testing)
+
+### 2️⃣ Optimizer Comparison
+Train the same neural network using different optimizers:
+- 🔹 **Stochastic Gradient Descent (SGD)**
+- 🔹 **Adam**
+- 🔹 **RMSprop**
+- 🔹 **Adagrad**
+
+Each optimizer is evaluated for:
+- Convergence behavior
+- Learning rate sensitivity
+- Stability during training
+
+### 3️⃣ Evaluation & Visualization
+- Track and plot:
+  - Training vs. Validation Loss
+  - MAE / MSE (for regression)
+  - Accuracy (if applicable)
+- Final performance metrics per optimizer
+- Discuss: Which optimizer performed best and why?
+
+---
+
+## 🧠 Learning Outcomes
+
+### ✅ See Gradient Descent in Action
+- Observe how each optimizer updates weights
+- Compare their performance across metrics
+
+### ✅ Understand Learning Rate & Momentum
+- Explore the effects of learning rate tuning
+- See how momentum and adaptive learning impact results
+
+### ✅ Learn to Evaluate Optimizer Quality
+- Spot overfitting, slow convergence, and poor generalization
+- Understand optimizer choice in real-world problems
+
+---
+
+## 🛠️ Tech Stack
+
+- Python
+- TensorFlow / Keras
+- Scikit-learn
+- Matplotlib & Seaborn
+- Google Colab
+
+---
+
+## 📊 Results & Insights
+
+> After training and comparing all models, the project concludes with a detailed analysis of each optimizer’s behavior, convergence pattern, and generalization ability on real-world health data.
+
+---
+
