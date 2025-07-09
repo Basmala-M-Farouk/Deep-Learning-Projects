@@ -68,6 +68,6 @@ Feel free to fork this repository, open issues, and submit pull requests. Any co
 
 This project is licensed under the MIT License - see the `LICENSE` file for details. 📄
 
-## Contact
+## Contact 📧
 
-[Your Name/GitHub Profile Link] 📧
+https://www.linkedin.com/in/basmala-mohamed-farouk-079588223/ 
