@@ -37,8 +37,8 @@ This repository explores the application of **Restricted Boltzmann Machines (RBM
 
 1.  Clone this repository:
     ```bash
-    git clone [https://github.com/YourUsername/YourRepoName.git](https://github.com/YourUsername/YourRepoName.git) # Replace with your actual repo URL
-    cd YourRepoName/RBM_Project # Adjust path if RBM.ipynb is in a subfolder
+    git clone [https://github.com/Basmala-M-Farouk/Deep-Learning-Projects.git](https://github.com/Basmala-M-Farouk/Deep-Learning-Projects.git) # Replace with your actual repo URL
+    cd Deep-Learning-Projects/RBM vs. Raw/REDME.md # Adjust path if RBM.ipynb is in a subfolder
     ```
 2.  Install the required libraries:
     ```bash
