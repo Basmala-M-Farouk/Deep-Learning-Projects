@@ -6,7 +6,7 @@ This repository showcases a deep learning project focused on **dog breed classif
 
 ## Features
 
-* **Stanford Dogs Dataset Integration:** Seamless loading and preparation of the Stanford Dogs Dataset. 📊
+* ****Stanford Dogs Dataset Integration:** Seamless loading and preparation of the [Stanford Dogs Dataset](https://www.kaggle.com/datasets/jessicali9530/stanford-dogs-dataset) 📊
 * **InceptionV3 Transfer Learning:** Leverages a pre-trained InceptionV3 model for robust feature extraction. 🚀
 * **Data Augmentation:** Implements image augmentation techniques to improve model generalization and reduce overfitting. 📈
 * **Dual Model Training:** Trains and compares two models: one with data augmentation and one without, highlighting the benefits of augmentation. 🔄
@@ -32,7 +32,7 @@ This repository showcases a deep learning project focused on **dog breed classif
 
 1.  Clone this repository:
     ```bash
-    git clone [https://github.com/YourUsername/DogBreedPro.git](https://github.com/YourUsername/DogBreedPro.git)
+    git clone [https://github.com/Basmala-M-Farouk/DogVision AI.git](https://github.com/Basmala-M-Farouk/DogVision AI.git)
     cd DogBreedPro
     ```
 2.  Install the required libraries:
