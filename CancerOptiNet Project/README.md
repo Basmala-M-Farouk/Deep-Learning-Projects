@@ -1,84 +1,70 @@
-# 🧠 CancerOptiNet  
-**Deep Learning Optimization for Cancer Survival Prediction**
+# 🧬📊 CancerOptiNet: AI-Driven Cancer Outcome Prediction 
 
-## 📘 Project Description
+## Overview
 
-This project applies deep learning techniques to a simulated global cancer patient dataset (2015–2024) to predict key outcomes such as **survival years**, **treatment cost**, and **severity score**. The main goal is to evaluate and compare the performance of various gradient-based optimizers (SGD, Adam, RMSprop, Adagrad) in terms of convergence speed, accuracy, and overall model performance.
+This repository presents **CancerOptiNet**, a deep learning project focused on predicting critical cancer outcomes: `Treatment Cost (USD)`, `Survival Years`, and `Target Severity Score`. Utilizing a comprehensive dataset of global cancer patients from 2015-2024, this project demonstrates a robust pipeline for data preprocessing, deep learning model development, and performance evaluation. Our goal is to leverage AI to gain insights into cancer prognosis and treatment. 💡
 
----
+## Features
 
-## 🩺 Dataset Overview
+* **Global Cancer Dataset (2015-2024):** Processes a real-world dataset of cancer patients, including various demographic and medical factors. 🌍
+* **Multi-Target Regression:** Predicts three key continuous outcomes simultaneously: treatment cost, survival years, and severity score. 🎯
+* **Advanced Data Preprocessing:** Implements `MinMaxScaler` for numerical features and `OneHotEncoder` for categorical variables, streamlined with `ColumnTransformer` and `Pipeline`. ✂️
+* **Deep Learning Model (Keras):** Utilizes a multi-layer Sequential neural network with `Dense` and `Dropout` layers, incorporating `L2 regularization` to prevent overfitting. 🧠
+* **Optimizer Comparison:** Evaluates model performance across various optimizers including `SGD`, `Adam`, `RMSprop`, and `Adagrad` to identify the most effective training strategy. ⚙️
+* **Comprehensive Evaluation Metrics:** Models are compiled with Mean Squared Error (MSE) as the loss function and Mean Absolute Error (MAE) as a key evaluation metric. ✅
+* **Google Drive Integration:** Designed to seamlessly access datasets and save models from Google Drive in a Colab environment. 📂
+* **Python & Libraries:** Built using Python with essential libraries like `pandas`, `numpy`, `matplotlib`, `scikit-learn`, and `TensorFlow/Keras`. 🐍
 
-The dataset includes global cancer data with the following features:
+## Project Structure
 
-- **Demographics:** Age, Gender, Country/Region  
-- **Medical Info:** Cancer Type, Stage, Severity Score  
-- **Lifestyle & Risk Factors:** Smoking, Alcohol, Environmental Exposure  
-- **Target Variables:**  
-  - 🎯 Survival Years  
-  - 💰 Treatment Cost  
-  - 🚨 Severity Score  
+* `CancerOptiNet_Project.ipynb`: The main Jupyter Notebook containing the complete code for data handling, model building, training, and evaluation. 📝
 
----
+## Getting Started
 
-## 🔧 Tasks Breakdown
+### Prerequisites
 
-### 1️⃣ Data Preprocessing
-- Normalized numeric features
-- One-hot encoded categorical features
-- Train-test split (80% training, 20% testing)
+* Python 3.x
+* TensorFlow 2.x
+* pandas
+* numpy
+* matplotlib
+* scikit-learn
 
-### 2️⃣ Optimizer Comparison
-Train the same neural network using different optimizers:
-- 🔹 **Stochastic Gradient Descent (SGD)**
-- 🔹 **Adam**
-- 🔹 **RMSprop**
-- 🔹 **Adagrad**
+### Installation
 
-Each optimizer is evaluated for:
-- Convergence behavior
-- Learning rate sensitivity
-- Stability during training
+1.  Clone this repository:
+    ```bash
+    git clone [https://github.com/YourUsername/CancerOptiNet.git](https://github.com/YourUsername/CancerOptiNet.git)
+    cd CancerOptiNet
+    ```
+2.  Install the required libraries:
+    ```bash
+    pip install tensorflow pandas numpy matplotlib scikit-learn
+    ```
 
-### 3️⃣ Evaluation & Visualization
-- Track and plot:
-  - Training vs. Validation Loss
-  - MAE / MSE (for regression)
-  - Accuracy (if applicable)
-- Final performance metrics per optimizer
-- Discuss: Which optimizer performed best and why?
+### Usage
 
----
+1.  Ensure your dataset (`global_cancer_patients_2015_2024.csv`) is accessible via Google Drive at `/content/drive/MyDrive/opt data/`.
+2.  Open the Jupyter Notebook:
+    ```bash
+    jupyter notebook CancerOptiNet_Project.ipynb
+    ```
+3.  Run all cells in the notebook to execute the full pipeline, from data loading and preprocessing to model training and evaluation. ▶️
 
-## 🧠 Learning Outcomes
+## Results
 
-### ✅ See Gradient Descent in Action
-- Observe how each optimizer updates weights
-- Compare their performance across metrics
+The project meticulously trains models with different optimizers and records their performance in terms of loss (MSE) and MAE on training, validation, and test datasets. The results table summarizes the effectiveness of each optimizer. 📈
 
-### ✅ Understand Learning Rate & Momentum
-- Explore the effects of learning rate tuning
-- See how momentum and adaptive learning impact results
+*(Please refer to the `CancerOptiNet_Project.ipynb` notebook for the detailed results table and performance plots generated during execution, as training outputs can vary slightly and the complete table is generated dynamically.)*
 
-### ✅ Learn to Evaluate Optimizer Quality
-- Spot overfitting, slow convergence, and poor generalization
-- Understand optimizer choice in real-world problems
+## Contributing
 
----
+We welcome contributions to enhance CancerOptiNet! Feel free to fork the repository, open issues for bugs or feature requests, and submit pull requests. 🤝
 
-## 🛠️ Tech Stack
+## License
 
-- Python
-- TensorFlow / Keras
-- Scikit-learn
-- Matplotlib & Seaborn
-- Google Colab
+This project is licensed under the MIT License - see the `LICENSE` file for details. 📄
 
----
+## Contact 📧
 
-## 📊 Results & Insights
-
-> After training and comparing all models, the project concludes with a detailed analysis of each optimizer’s behavior, convergence pattern, and generalization ability on real-world health data.
-
----
-
+https://www.linkedin.com/in/basmala-mohamed-farouk-079588223/
