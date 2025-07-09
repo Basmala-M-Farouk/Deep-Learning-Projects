@@ -6,17 +6,17 @@ This repository houses the **FakeSnap Detector** project, a deep learning soluti
 
 ## Features
 
-* **CIFAKE Dataset Integration:** Automatically downloads and extracts the [CIFAKE dataset](https://www.kaggle.com/datasets/birdy654/cifake-real-and-ai-generated-synthetic-images) directly from Kaggle, which contains a large collection of real and AI-generated facial images. 📂
-* **Kaggle API Setup:** Includes instructions and code for setting up Kaggle API access to facilitate seamless dataset downloads. 🔑
-* **Robust Data Preprocessing:** Prepares images for deep learning by resizing them to 224x224 pixels and rescaling pixel values to a [0, 1] range for optimal model performance. ⚙️
-* **Advanced Data Augmentation:** Applies various augmentation techniques such as horizontal flips, random zooms, and rotations (up to 20 degrees) using `ImageDataGenerator` to enhance model generalization and prevent overfitting. 📊
-* **Train/Validation Split:** Splits the dataset into 80% for training and 20% for validation to ensure robust model evaluation. 🧪
-* **Image Visualization:** Provides code to visualize sample augmented images, allowing for verification of the data pipeline and confirming correct labeling before model training. 👀
-* **TensorFlow & Keras:** Built with the powerful TensorFlow 2.x and Keras API for efficient deep learning model development and training. 🐍
+* 📂**CIFAKE Dataset Integration:** Automatically downloads and extracts the [CIFAKE dataset](https://www.kaggle.com/datasets/birdy654/cifake-real-and-ai-generated-synthetic-images) directly from Kaggle, which contains a large collection of real and AI-generated facial images. 
+* 🔑**Kaggle API Setup:** Includes instructions and code for setting up Kaggle API access to facilitate seamless dataset downloads. 
+* ⚙️**Robust Data Preprocessing:** Prepares images for deep learning by resizing them to 224x224 pixels and rescaling pixel values to a [0, 1] range for optimal model performance. 
+* 📊**Advanced Data Augmentation:** Applies various augmentation techniques such as horizontal flips, random zooms, and rotations (up to 20 degrees) using `ImageDataGenerator` to enhance model generalization and prevent overfitting. 
+*🧪 **Train/Validation Split:** Splits the dataset into 80% for training and 20% for validation to ensure robust model evaluation. 
+* 👀**Image Visualization:** Provides code to visualize sample augmented images, allowing for verification of the data pipeline and confirming correct labeling before model training. 
+* 🐍**TensorFlow & Keras:** Built with the powerful TensorFlow 2.x and Keras API for efficient deep learning model development and training. 
 
 ## Project Structure
 
-* `FakeSnap Detector Project.ipynb`: The main Jupyter Notebook containing all the code for dataset setup, data preprocessing, augmentation, and visualization. 📝
+* 📝`FakeSnap Detector Project.ipynb`: The main Jupyter Notebook containing all the code for dataset setup, data preprocessing, augmentation, and visualization. 
 
 ## Getting Started
 
