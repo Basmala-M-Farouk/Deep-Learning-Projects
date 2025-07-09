@@ -1,4 +1,4 @@
-# GANiverse: Generating Paw-some Images 🐾✨
+#🐾✨ FaceForge (DCGAN): Generating Paw-some Images 
 
 ## Overview
 
