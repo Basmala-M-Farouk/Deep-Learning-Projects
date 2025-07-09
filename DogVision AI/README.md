@@ -1,4 +1,4 @@
-# DogVision AI: InceptionV3 Canine Classifier 🐾🧠
+# 🐾🧠DogVision AI: InceptionV3 Canine Classifier 
 
 ## Overview
 
