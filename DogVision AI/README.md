@@ -30,12 +30,19 @@ This repository showcases a deep learning project focused on **dog breed classif
 
 ### Installation
 
-1.  Clone this repository:
+1.  **Clone the main repository:**
     ```bash
-    git clone [https://github.com/Basmala-M-Farouk/DogVision AI.git](https://github.com/Basmala-M-Farouk/DogVision AI.git)
-    cd DogBreedPro
+    git clone [https://github.com/Basmala-M-Farouk/Deep-Learning-Projects.git](https://github.com/Basmala-M-Farouk/Deep-Learning-Projects.git)
     ```
-2.  Install the required libraries:
+    **👉 Copy only this part for the `git clone` command:** `https://github.com/Basmala-M-Farouk/Deep-Learning-Projects.git`
+
+2.  **Navigate into the DogVision AI project directory:**
+    ```bash
+    cd Deep-Learning-Projects/DogVision\ AI
+    ```
+    * **Note:** The backslash `\` before the space in `DogVision\ AI` is important for command-line navigation to handle the space correctly.
+
+3.  **Install the required libraries:**
     ```bash
     pip install tensorflow tensorflow-datasets matplotlib pandas
     ```
