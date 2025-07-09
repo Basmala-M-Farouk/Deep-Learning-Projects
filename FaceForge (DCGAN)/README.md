@@ -1,24 +1,24 @@
-# 🐾✨ FaceForge (DCGAN): Generating Paw-some Images 
+# ✨👨‍🎤 FaceForge: DCGAN Face Synthesis 
 
 ## Overview
 
-This repository features **GANiverse**, a deep learning project dedicated to **Generative Adversarial Networks (GANs)** for image synthesis. We implement and train a Conditional GAN (CGAN) to generate new, realistic images, specifically focusing on generating images reminiscent of cats and dogs using the widely-known PetImages dataset. This project provides a hands-on demonstration of building, training, and evaluating both Generator and Discriminator networks, showcasing the fascinating capabilities of adversarial learning. 🖼️🚀
+This repository features **CelebGen**, a deep learning project dedicated to **Deep Convolutional Generative Adversarial Networks (DCGANs)** for high-quality **face synthesis**. We implement and train a DCGAN to generate new, realistic celebrity faces using the vast **CelebA dataset**. This project provides a hands-on demonstration of building, training, and evaluating both Generator and Discriminator networks, showcasing the fascinating capabilities of adversarial learning in creating lifelike imagery. 🖼️🚀
 
 ## Features
 
-* **PetImages Dataset:** Utilizes the [Dogs vs. Cats dataset (PetImages)](https://www.kaggle.com/datasets/salader/dogs-vs-cats), a popular collection of animal images, accessed and extracted from Google Drive. 🐕🐈
-* **Complete GAN Architecture:** Implements both the Generator and Discriminator networks from scratch:
+* **CelebA Dataset Integration:** Utilizes the large-scale [CelebA dataset](https://mmlab.ie.cuhk.edu.hk/projects/CelebA.html) (CelebFaces Attributes Dataset), containing over 200,000 celebrity images, which is expected to be loaded or extracted from Google Drive. 🧑‍🎤📸
+* **Deep Convolutional GAN (DCGAN) Architecture:** Implements a robust DCGAN structure for stable and effective image generation:
     * **Generator:** Uses `Conv2DTranspose` for effective upsampling, `BatchNormalization`, `LeakyReLU`, and a `Tanh` activation for outputting images. 🎨
     * **Discriminator:** Employs `Conv2D` layers, `Dropout` for regularization, and `LeakyReLU` activations for robust real/fake classification. 🕵️‍♀️
 * **Adversarial Training Loop:** Defines custom `generator_loss` and `discriminator_loss` functions and implements a `train_step` to alternate between optimizing the discriminator and the generator, driving the adversarial process. 🔄
-* **Efficient Data Pipeline:** Preprocesses images by resizing them to 64x64 pixels and normalizing pixel values to the range of [-1, 1], then uses `tf.data.Dataset` for optimized batching, shuffling, and prefetching. 🚀
-* **Progress Visualization:** Generates and saves sample images at regular intervals during training, allowing for a visual assessment of the GAN's learning progress and the quality of generated images. 👀
+* **Efficient Data Pipeline:** Preprocesses images by resizing them (e.g., to 64x64 pixels as commonly done in GANs) and normalizing pixel values to the range of [-1, 1], then uses `tf.data.Dataset` for optimized batching, shuffling, and prefetching. 🚀
+* **Progress Visualization:** Generates and saves sample images at regular intervals during training, allowing for a visual assessment of the GAN's learning progress and the quality of generated faces. 👀
 * **Model Persistence:** Includes functionality to save checkpoints of the Generator and Discriminator models, enabling continuation of training or deployment of trained models. 💾
 * **TensorFlow 2.x:** Built entirely with TensorFlow 2.x for modern and efficient deep learning development. 🐍
 
 ## Project Structure
 
-* `gans (1).ipynb`: The main Jupyter Notebook containing all the code for dataset setup, GAN model definitions, training loop implementation, and image generation. 📝
+* `gans (1).ipynb`: The main Jupyter Notebook containing all the code for dataset setup, DCGAN model definitions, training loop implementation, and face generation. 📝
 
 ## Getting Started
 
@@ -37,7 +37,8 @@ This repository features **GANiverse**, a deep learning project dedicated to **G
     ```
 2.  **Navigate into the GANs project directory:**
     ```bash
-    cd Deep-Learning-Projects/FaceForge\ \(DCGAN\) # Adjust path if 'gans (1).ipynb' is in a differently named folder
+    cd Deep-Learning-Projects/FaceForge\ \(DCGAN\)
+    # Adjust path if 'gans (1).ipynb' is in a differently named folder or has spaces (e.g., gans\ \(1\))
     ```
     * **Note:** If your folder name includes spaces (like `gans (1)`), you might need to escape them: `cd Deep-Learning-Projects/gans\ \(1\)`
 
@@ -48,26 +49,26 @@ This repository features **GANiverse**, a deep learning project dedicated to **G
 
 ### Usage
 
-1.  **Prepare your dataset:** Ensure you have the `PetImages.zip` file (or a folder containing `Cat` and `Dog` subdirectories) placed in your Google Drive, accessible via the specified path (e.g., `/content/drive/MyDrive/PetImages.zip`).
+1.  **Prepare your dataset:** The notebook expects the CelebA dataset (e.g., as a `.zip` file or extracted images) to be accessible from your Google Drive, typically at a path like `/content/drive/MyDrive/CelebA/`. You will need to mount your Google Drive within the notebook.
 2.  Open the Jupyter Notebook:
     ```bash
     jupyter notebook "gans (1).ipynb"
     ```
 3.  Run all cells in the notebook. This will:
-    * Mount Google Drive and extract the dataset.
-    * Load and preprocess the images.
-    * Define and compile the Generator and Discriminator.
-    * Execute the GAN training loop, generating sample images periodically. ▶️
+    * Mount Google Drive and handle dataset extraction/loading.
+    * Load and preprocess the CelebA images.
+    * Define and compile the Generator and Discriminator networks.
+    * Execute the DCGAN training loop, generating sample celebrity faces periodically. ▶️
 
 ## Results
 
-During the training process, the GAN will generate increasingly realistic images. The notebook provides visualizations of these generated images, showcasing the model's ability to learn and reproduce patterns from the input dataset. The loss values for both the generator and discriminator will also illustrate the adversarial training progress. 📈
+During the training process, the DCGAN will generate increasingly realistic celebrity faces. The notebook provides visualizations of these generated images, showcasing the model's ability to learn and reproduce intricate facial features from the CelebA dataset. The loss values for both the generator and discriminator will also illustrate the adversarial training progress. 📈
 
-*(Please refer to the `gans (1).ipynb` notebook for dynamic visualizations of generated images and training progress.)*
+*(Please refer to the `gans (1).ipynb` notebook for dynamic visualizations of generated faces and training progress.)*
 
 ## Contributing
 
-Contributions are highly appreciated! If you have ideas for improving GAN architecture, training stability, or generating higher-quality images, please feel free to fork this repository, open issues, or submit pull requests. 🤝
+Contributions are highly appreciated! If you have ideas for improving DCGAN architecture, training stability, or generating higher-quality faces, please feel free to fork this repository, open issues, or submit pull requests. 🤝
 
 ## License
 
