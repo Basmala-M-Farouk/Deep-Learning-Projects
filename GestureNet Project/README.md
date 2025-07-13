@@ -1,24 +1,48 @@
-# GestureNet: Deep Learning for Rock-Paper-Scissors Recognition
+# 👐 GestureNet Project: Real-time Gesture Recognition with Deep Learning
 
-This project applies deep learning models—MLP and CNN—to classify images from the [Rock-Paper-Scissors dataset](https://www.tensorflow.org/datasets/catalog/rock_paper_scissors). It demonstrates an end-to-end pipeline including data loading, preprocessing, model training, and evaluation using TensorFlow and TensorFlow Datasets.
+## ✨ Overview
 
-## 🧠 Models Used
-- **MLP (Multilayer Perceptron)**: A simple dense network with dropout layers.
-- **CNN (Convolutional Neural Network)**: Uses convolutional and pooling layers to extract spatial features.
+This repository hosts the `GestureNet Project` Jupyter Notebook, a comprehensive guide to building and evaluating a deep learning model for real-time gesture recognition. It leverages Convolutional Neural Networks (CNNs) to accurately interpret hand gestures from video input, providing a foundational understanding of gesture recognition systems. The project includes data preprocessing, model architecture design, training, evaluation, and visualization of results.
 
-## 📁 Dataset
-- **Source**: TensorFlow Datasets
-- **Classes**: Rock, Paper, Scissors
-- **Preprocessing**: Images resized to 150x150, normalized to [0, 1] range.
+## 🚀 Features
 
-## 🚀 How to Run
+* **Data Preprocessing**: Utilizes `MediaPipe` for efficient hand landmark extraction, preparing data for model training.
+* **Deep Learning Models**: Implements both a standard Artificial Neural Network (ANN) and a Convolutional Neural Network (CNN) for gesture classification, demonstrating their comparative performance.
+* **Optimizer Comparison**: Explores the impact of various optimizers (SGD, SGD with Momentum, Adagrad, RMSProp, Adam) on model training and performance for both ANN and CNN architectures.
+* **Comprehensive Evaluation**: Provides detailed metrics including training loss, training accuracy, validation loss, validation accuracy, test loss, and test accuracy for each model and optimizer combination.
+* **Visualizations**: Generates insightful plots for loss and accuracy over epochs, and confusion matrices to visually assess model performance and identify misclassifications.
 
-### Requirements
-- Python ≥ 3.7
-- TensorFlow ≥ 2.x
-- Matplotlib
-- Pandas
+## 📁 Project Structure
 
-### Setup
+The core of this project is the `GestureNet Project.ipynb` Jupyter Notebook, which contains:
+
+* **Data Loading and Preparation**: Steps to load raw video data and convert it into a suitable format for neural network input using MediaPipe.
+* **Model Definition**: Python code for constructing the ANN and CNN architectures using TensorFlow/Keras.
+* **Training Loops**: Implementation of training procedures for various optimizers.
+* **Evaluation and Reporting**: Code to evaluate the trained models and present performance tables and graphs.
+
+## 🛠️ Getting Started
+
+### Data Source
+
+The dataset used for training and evaluating the gesture recognition models is the [Rock-Paper-Scissors Dataset](https://www.tensorflow.org/datasets/catalog/rock_paper_scissors) from TensorFlow Datasets.
+
+### Prerequisites
+
+To run this notebook, you will need:
+
+* Python 3.x
+* Jupyter Notebook or JupyterLab
+* Key Python libraries:
+    * `tensorflow` (or `keras`)
+    * `numpy`
+    * `pandas`
+    * `matplotlib`
+    * `seaborn`
+    * `scikit-learn`
+    * `mediapipe`
+
+You can install the required libraries using pip:
+
 ```bash
-pip install tensorflow matplotlib pandas tensorflow-datasets
+pip install tensorflow numpy pandas matplotlib seaborn scikit-learn mediapipe
