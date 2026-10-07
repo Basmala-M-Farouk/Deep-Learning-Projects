@@ -1,76 +1,84 @@
-# 🐦❤️‍🩹 TweetPulse: RNN & LSTM for Sentiment Analysis 
+# 🐦 TweetPulse: Tweet Sentiment Analysis with RNN vs. Bidirectional LSTM
 
-## Overview
+Classifies tweets as **positive or negative** and compares two recurrent architectures on **1.6 million real tweets**. The bidirectional LSTM reaches **82.8% test accuracy**, about 6 points better than a simple RNN.
 
-This repository features **TweetPulse**, a deep learning project dedicated to **sentiment analysis of tweets**. We explore and compare the effectiveness of **Recurrent Neural Networks (RNNs)** and **Long Short-Term Memory (LSTM) networks** in classifying tweet sentiment as positive or negative. Using a large-scale dataset of 1.6 million processed tweets, this project demonstrates a complete pipeline from data preprocessing and balancing to model training, evaluation, and real-time prediction. Our goal is to provide insights into how different recurrent architectures perform on text classification tasks. 💡
+**Stack:** TensorFlow / Keras · GloVe word embeddings · scikit-learn · pandas · Google Colab
 
-## Features
+---
 
-* **Large-Scale Dataset:** Utilizes the comprehensive [Sentiment140 dataset](https://www.kaggle.com/datasets/kazanova/sentiment140) (`training.1600000.processed.noemoticon.csv`) containing 1.6 million tweets for robust model training. 📊
-* **Advanced Text Preprocessing:** Implements a series of text cleaning steps, including removal of URLs, mentions, hashtags, and special characters, to prepare raw tweets for neural network input. ✂️
-* **Tokenization & Padding:** Converts text into numerical sequences using `Tokenizer` and ensures uniform input length with `pad_sequences` for efficient model processing. 📏
-* **Class Imbalance Handling:** Calculates and applies `class weights` during training to mitigate the effects of an imbalanced dataset, ensuring fair learning across sentiment classes. ⚖️
-* **RNN & LSTM Comparison:** Builds and trains both a `SimpleRNN` model and an `LSTM` model, allowing for a direct comparison of their performance in capturing long-range dependencies in text. 🧠
-* **Model Persistence:** Integrates functionality to save and load trained models to/from Google Drive, enabling persistent storage and easy deployment. 💾
-* **Real-time Prediction:** Includes a user-friendly function to predict the sentiment of any new input tweet, demonstrating the models' practical application. ✅
-* **Performance Visualization:** (If applicable, add if the notebook has plots for loss/accuracy over epochs. Otherwise, remove/adjust) Visualizes training and validation metrics to provide insights into model learning curves and convergence. 📉📈
-* **TensorFlow & Keras:** Developed using the powerful TensorFlow 2.x and Keras API for efficient deep learning development. 🐍
+## 📊 Results
 
-## Project Structure
+Both models were evaluated on a held-out test set of 160,000 tweets that wasn't used for training or tuning.
 
-* `RNN2.ipynb`: The main Jupyter Notebook containing all the code for data loading, preprocessing, model building (RNN & LSTM), training, evaluation, and prediction. 📝
+| Model | Test accuracy | Test loss | Embeddings |
+|-------|:------------:|:---------:|------------|
+| SimpleRNN (64 units) | 76.5% | 0.491 | GloVe 100d, frozen |
+| **Bidirectional LSTM (128 units)** | **82.8%** | **0.383** | GloVe 100d, fine-tuned |
 
-## Getting Started
+**What made the difference:** the bidirectional LSTM reads each tweet in both directions and keeps long-range context (for example "not ... good"), and letting the GloVe embeddings fine-tune adapts them to Twitter slang. The trade-off is training time: about 1.7× longer per epoch than the RNN (≈136 s vs. ≈81 s on a Colab GPU).
 
-### Prerequisites
+---
 
-* Python 3.x
-* TensorFlow 2.x
-* pandas
-* numpy
-* matplotlib
-* scikit-learn
+## 📂 Dataset
 
-### Installation
+**[Sentiment140 (Kaggle)](https://www.kaggle.com/datasets/kazanova/sentiment140)**: 1.6 million tweets labelled negative (0) or positive (4, mapped to 1).
 
-1.  **Clone this repository:**
-    ```bash
-    git clone [https://github.com/Basmala-M-Farouk/Deep-Learning-Projects.git](https://github.com/Basmala-M-Farouk/Deep-Learning-Projects.git)
-    ```
-    * **Note:** If you are cloning a specific subfolder, you first clone the main repository, then navigate.
-2.  **Navigate into the RNN2 project directory:**
-    ```bash
-    cd Deep-Learning-Projects/SentimentalTweets AI
-    ```
-    
-3.  **Install the required libraries:**
-    ```bash
-    pip install tensorflow pandas numpy matplotlib scikit-learn
-    ```
+| Split | Share | Tweets |
+|-------|:-----:|-------:|
+| Train | 80% | 1,280,000 |
+| Validation | 10% | 160,000 |
+| Test | 10% | 160,000 |
 
-### Usage
+Splits are stratified so each one keeps the same positive/negative balance.
 
-1.  **Mount Google Drive:** The notebook assumes your dataset (`training.1600000.processed.noemoticon.csv`) will be accessed from Google Drive. Ensure it's located at `/content/drive/MyDrive/tweets_data/`. You will be prompted to mount your Google Drive within the notebook.
-2.  Open the Jupyter Notebook:
-    ```bash
-    jupyter notebook RNN2.ipynb
-    ```
-3.  Run all cells in the notebook to execute the entire project pipeline, from data loading to model training and testing with custom inputs. ▶️
+> The dataset and GloVe vectors aren't included in this repo. Download them from Kaggle and the [Stanford GloVe page](https://nlp.stanford.edu/projects/glove/) (`glove.6B.100d.txt`).
 
-## Results
+---
 
-This project provides a comparative analysis of RNN and LSTM models for tweet sentiment classification. Key performance metrics (e.g., accuracy, loss) for both models are captured during training and evaluation, demonstrating their capabilities on this large dataset. The notebook also showcases the ability to predict sentiment on new, unseen tweets. 🏆
+## 🔄 Pipeline
 
-*(Please refer to the `RNN2.ipynb` notebook for detailed training logs, evaluation metrics, and comparative plots of RNN vs. LSTM performance.)*
+1. **Cleaning:** remove URLs, @mentions, `#` symbols and special characters; lowercase everything.
+2. **Tokenization:** keep the 20,000 most frequent words (unknown words map to `<OOV>`) and pad or truncate each tweet to 100 tokens.
+3. **Embeddings:** initialise the embedding layer with pre-trained **GloVe 100-dimensional** vectors.
+4. **Class weights:** computed with `class_weight='balanced'` and applied during training.
+5. **Models:**
+   - **RNN:** frozen GloVe → `SimpleRNN(64)` → dropout → dense → sigmoid, trained 6 epochs with Adam (lr 1e-4).
+   - **BiLSTM:** fine-tuned GloVe → `Bidirectional(LSTM(128))` → dropout → dense → sigmoid, trained 8 epochs.
+6. **Evaluation:** accuracy and loss on the untouched test set, plus training/validation curves for both models.
+7. **Try it:** a `predict()` function classifies any sentence you type with both models.
 
-## Contributing
+```
+Enter tweet to test: I love meat
+RNN Prediction:  Positive 😊
+LSTM Prediction: Positive 😊
+```
 
-Contributions are welcome! Whether it's improving model architecture, optimizing preprocessing, or adding new features, feel free to fork this repository, open issues, and submit pull requests. 🤝
+---
 
-## License
+## 🚀 Run it
 
-This project is licensed under the MIT License - see the `LICENSE` file for details. 📄
+```bash
+pip install tensorflow pandas numpy matplotlib scikit-learn
+```
 
-## Contact 📧
+1. Open `SentimentalTweets AI Project.ipynb` in Google Colab.
+2. Put the Sentiment140 CSV at `MyDrive/Twitter_Sentiment_Analysis/training.csv` and the GloVe file at `MyDrive/glove.6B/glove.6B.100d.txt` (or edit the paths in the notebook).
+3. Run all cells. Training the BiLSTM takes about 18 minutes on a Colab GPU.
 
-https://www.linkedin.com/in/basmala-mohamed-farouk-079588223/ 
+---
+
+## 📁 Files
+
+| File | Purpose |
+|------|---------|
+| `SentimentalTweets AI Project.ipynb` | Full pipeline: cleaning, tokenization, GloVe embeddings, both models, evaluation, plots and live prediction |
+
+## 💡 What I learned
+
+- Pre-trained embeddings give a strong start; fine-tuning them helps on informal text like tweets.
+- Bidirectional LSTMs capture context and negation much better than simple RNNs.
+- Keep a test set the models never see, so the comparison is fair.
+
+## 📧 Contact
+
+[LinkedIn](https://www.linkedin.com/in/basmala-mohamed-farouk-079588223/)
